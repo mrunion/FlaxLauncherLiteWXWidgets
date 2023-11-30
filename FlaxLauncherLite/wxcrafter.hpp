@@ -20,6 +20,10 @@
 #include <wx/statbmp.h>
 #include <wx/stattext.h>
 #include <wx/statusbr.h>
+#include <wx/dialog.h>
+#include <wx/textctrl.h>
+#include <wx/filepicker.h>
+#include <wx/button.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
 #include <wx/persist/toplevel.h>
@@ -77,6 +81,52 @@ public:
     wxStatusBar* GetStatusBar32() { return m_statusBar32; }
     MainFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Launcher Lite"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(600,350), long style = wxDEFAULT_FRAME_STYLE);
     virtual ~MainFrameBaseClass();
+};
+
+
+class FlaxEngineDlgBaseClass : public wxDialog
+{
+protected:
+    wxStaticText* m_staticText60;
+    wxTextCtrl* m_engineName;
+    wxStaticText* m_staticText62;
+    wxFilePickerCtrl* m_enginePath;
+    wxStdDialogButtonSizer* m_stdBtnSizer64;
+    wxButton* m_OKBtn;
+    wxButton* m_CancelBtn;
+
+protected:
+
+public:
+    wxStaticText* GetStaticText60() { return m_staticText60; }
+    wxTextCtrl* GetEngineName() { return m_engineName; }
+    wxStaticText* GetStaticText62() { return m_staticText62; }
+    wxFilePickerCtrl* GetEnginePath() { return m_enginePath; }
+    FlaxEngineDlgBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Engine"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(450,200), long style = wxDEFAULT_DIALOG_STYLE);
+    virtual ~FlaxEngineDlgBaseClass();
+};
+
+
+class FlaxProjectDlgBaseClass : public wxDialog
+{
+protected:
+    wxStaticText* m_staticText603;
+    wxTextCtrl* m_projectName;
+    wxStaticText* m_staticText625;
+    wxDirPickerCtrl* m_projectPath;
+    wxStdDialogButtonSizer* m_stdBtnSizer647;
+    wxButton* m_OKBtn;
+    wxButton* m_CancelBtn;
+
+protected:
+
+public:
+    wxStaticText* GetStaticText603() { return m_staticText603; }
+    wxTextCtrl* GetProjectName() { return m_projectName; }
+    wxStaticText* GetStaticText625() { return m_staticText625; }
+    wxDirPickerCtrl* GetProjectPath() { return m_projectPath; }
+    FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(450,200), long style = wxDEFAULT_DIALOG_STYLE);
+    virtual ~FlaxProjectDlgBaseClass();
 };
 
 #endif
