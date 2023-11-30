@@ -7,12 +7,16 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="FlaxEngineDlg.cpp"/>
+    <File Name="FlaxProjectDlg.cpp"/>
     <File Name="main.cpp"/>
     <File Name="MainFrame.cpp"/>
     <File Name="wxcrafter.cpp"/>
     <File Name="wxcrafter_bitmaps.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
+    <File Name="FlaxEngineDlg.hpp"/>
+    <File Name="FlaxProjectDlg.hpp"/>
     <File Name="MainFrame.hpp"/>
     <File Name="wxcrafter.hpp"/>
   </VirtualDirectory>

@@ -149,3 +149,147 @@ MainFrameBaseClass::~MainFrameBaseClass()
     m_addEngine->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddEngineLeftUp, this);
     
 }
+
+FlaxEngineDlgBaseClass::FlaxEngineDlgBaseClass(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+    : wxDialog(parent, id, title, pos, size, style)
+{
+    if ( !bBitmapLoaded ) {
+        // We need to initialise the default bitmap handler
+        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+        wxC9ED9InitBitmapResources();
+        bBitmapLoaded = true;
+    }
+    
+    wxBoxSizer* boxSizer58 = new wxBoxSizer(wxVERTICAL);
+    this->SetSizer(boxSizer58);
+    
+    wxFlexGridSizer* flexGridSizer59 = new wxFlexGridSizer(2, 2, 0, 0);
+    flexGridSizer59->SetFlexibleDirection( wxBOTH );
+    flexGridSizer59->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    flexGridSizer59->AddGrowableCol(1);
+    
+    boxSizer58->Add(flexGridSizer59, 1, wxALL|wxEXPAND, WXC_FROM_DIP(10));
+    
+    m_staticText60 = new wxStaticText(this, wxID_ANY, _("Engine Name"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    
+    flexGridSizer59->Add(m_staticText60, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_engineName = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    #if wxVERSION_NUMBER >= 3000
+    m_engineName->SetHint(_("Flax Master"));
+    #endif
+    
+    flexGridSizer59->Add(m_engineName, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_staticText62 = new wxStaticText(this, wxID_ANY, _("Location"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    
+    flexGridSizer59->Add(m_staticText62, 0, wxALL, WXC_FROM_DIP(5));
+    
+    m_enginePath = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select Flax Engine"), wxT("*"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL|wxFLP_FILE_MUST_EXIST);
+    
+    flexGridSizer59->Add(m_enginePath, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_stdBtnSizer64 = new wxStdDialogButtonSizer();
+    
+    boxSizer58->Add(m_stdBtnSizer64, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_OKBtn = new wxButton(this, wxID_OK, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
+    m_stdBtnSizer64->AddButton(m_OKBtn);
+    
+    m_CancelBtn = new wxButton(this, wxID_CANCEL, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
+    m_stdBtnSizer64->AddButton(m_CancelBtn);
+    m_stdBtnSizer64->Realize();
+    
+    SetName(wxT("FlaxEngineDlgBaseClass"));
+    SetMinClientSize(wxSize(450,150));
+    SetSize(wxDLG_UNIT(this, wxSize(450,200)));
+    if (GetSizer()) {
+         GetSizer()->Fit(this);
+    }
+    if(GetParent()) {
+        CentreOnParent(wxBOTH);
+    } else {
+        CentreOnScreen(wxBOTH);
+    }
+    if(!wxPersistenceManager::Get().Find(this)) {
+        wxPersistenceManager::Get().RegisterAndRestore(this);
+    } else {
+        wxPersistenceManager::Get().Restore(this);
+    }
+}
+
+FlaxEngineDlgBaseClass::~FlaxEngineDlgBaseClass()
+{
+}
+
+FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style)
+    : wxDialog(parent, id, title, pos, size, style)
+{
+    if ( !bBitmapLoaded ) {
+        // We need to initialise the default bitmap handler
+        wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+        wxC9ED9InitBitmapResources();
+        bBitmapLoaded = true;
+    }
+    
+    wxBoxSizer* boxSizer581 = new wxBoxSizer(wxVERTICAL);
+    this->SetSizer(boxSizer581);
+    
+    wxFlexGridSizer* flexGridSizer592 = new wxFlexGridSizer(2, 2, 0, 0);
+    flexGridSizer592->SetFlexibleDirection( wxBOTH );
+    flexGridSizer592->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    flexGridSizer592->AddGrowableCol(1);
+    
+    boxSizer581->Add(flexGridSizer592, 1, wxALL|wxEXPAND, WXC_FROM_DIP(10));
+    
+    m_staticText603 = new wxStaticText(this, wxID_ANY, _("Engine Name"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    
+    flexGridSizer592->Add(m_staticText603, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_projectName = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    #if wxVERSION_NUMBER >= 3000
+    m_projectName->SetHint(_("My Flax Project"));
+    #endif
+    
+    flexGridSizer592->Add(m_projectName, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_staticText625 = new wxStaticText(this, wxID_ANY, _("Location"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    
+    flexGridSizer592->Add(m_staticText625, 0, wxALL, WXC_FROM_DIP(5));
+    
+    m_projectPath = new wxDirPickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a Project Folder"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxDIRP_SMALL|wxDIRP_DEFAULT_STYLE);
+    
+    flexGridSizer592->Add(m_projectPath, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_stdBtnSizer647 = new wxStdDialogButtonSizer();
+    
+    boxSizer581->Add(m_stdBtnSizer647, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
+    m_OKBtn = new wxButton(this, wxID_OK, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
+    m_stdBtnSizer647->AddButton(m_OKBtn);
+    
+    m_CancelBtn = new wxButton(this, wxID_CANCEL, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
+    m_stdBtnSizer647->AddButton(m_CancelBtn);
+    m_stdBtnSizer647->Realize();
+    
+    SetName(wxT("FlaxProjectDlgBaseClass"));
+    SetMinClientSize(wxSize(450,150));
+    SetSize(wxDLG_UNIT(this, wxSize(450,200)));
+    if (GetSizer()) {
+         GetSizer()->Fit(this);
+    }
+    if(GetParent()) {
+        CentreOnParent(wxBOTH);
+    } else {
+        CentreOnScreen(wxBOTH);
+    }
+    if(!wxPersistenceManager::Get().Find(this)) {
+        wxPersistenceManager::Get().RegisterAndRestore(this);
+    } else {
+        wxPersistenceManager::Get().Restore(this);
+    }
+}
+
+FlaxProjectDlgBaseClass::~FlaxProjectDlgBaseClass()
+{
+}
