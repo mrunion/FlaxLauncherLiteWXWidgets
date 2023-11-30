@@ -33,94 +33,89 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
         wxC9ED9InitBitmapResources();
         bBitmapLoaded = true;
     }
-    // Set icon(s) to the application/dialog
-    wxIconBundle app_icons;
-    {
-        wxBitmap iconBmp = wxXmlResource::Get()->LoadBitmap(wxT("Logo"));
-        wxIcon icn;
-        icn.CopyFromBitmap(iconBmp);
-        app_icons.AddIcon( icn );
-    }
-    SetIcons( app_icons );
-
     
-    wxBoxSizer* boxSizer1 = new wxBoxSizer(wxHORIZONTAL);
-    this->SetSizer(boxSizer1);
+    m_menuBar31 = new wxMenuBar(0);
+    this->SetMenuBar(m_menuBar31);
     
-    m_mainPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(100,-1)), wxTAB_TRAVERSAL);
+    wxFlexGridSizer* flexGridSizer30 = new wxFlexGridSizer(0, 2, 0, 5);
+    flexGridSizer30->SetFlexibleDirection( wxBOTH );
+    flexGridSizer30->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+    flexGridSizer30->AddGrowableCol(1);
+    this->SetSizer(flexGridSizer30);
     
-    boxSizer1->Add(m_mainPanel, 1, wxEXPAND, WXC_FROM_DIP(5));
+    m_mainPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(130,-1)), wxTAB_TRAVERSAL);
     
-    wxBoxSizer* boxSizer10 = new wxBoxSizer(wxVERTICAL);
-    m_mainPanel->SetSizer(boxSizer10);
+    flexGridSizer30->Add(m_mainPanel, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
-    m_staticBitmap11 = new wxStaticBitmap(m_mainPanel, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("Logo")), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(64,64)), 0 );
+    wxBoxSizer* boxSizer37 = new wxBoxSizer(wxVERTICAL);
+    m_mainPanel->SetSizer(boxSizer37);
     
-    boxSizer10->Add(m_staticBitmap11, 0, wxALL, WXC_FROM_DIP(5));
-    m_staticBitmap11->SetMinSize(wxSize(64,64));
+    m_staticBitmap44 = new wxStaticBitmap(m_mainPanel, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("Logo")), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(64,64)), 0 );
+    
+    boxSizer37->Add(m_staticBitmap44, 0, wxALL|wxALIGN_CENTER, WXC_FROM_DIP(5));
+    m_staticBitmap44->SetMinSize(wxSize(64,64));
+    
+    boxSizer37->Add(0, 15, 1, wxALL, WXC_FROM_DIP(5));
     
     m_projects = new wxStaticText(m_mainPanel, wxID_ANY, _("Projects"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
     
-    boxSizer10->Add(m_projects, 0, wxALL, WXC_FROM_DIP(5));
+    boxSizer37->Add(m_projects, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
     
     m_engines = new wxStaticText(m_mainPanel, wxID_ANY, _("Engines"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
     
-    boxSizer10->Add(m_engines, 0, wxALL, WXC_FROM_DIP(5));
-    m_mainPanel->SetMinSize(wxSize(100,-1));
+    boxSizer37->Add(m_engines, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
+    m_mainPanel->SetMinSize(wxSize(130,-1));
+    
+    wxBoxSizer* boxSizer56 = new wxBoxSizer(wxVERTICAL);
+    
+    flexGridSizer30->Add(boxSizer56, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
     m_projectPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTAB_TRAVERSAL);
     
-    boxSizer1->Add(m_projectPanel, 0, wxALL, WXC_FROM_DIP(5));
+    boxSizer56->Add(m_projectPanel, 0, wxEXPAND, WXC_FROM_DIP(5));
     
-    wxBoxSizer* boxSizer13 = new wxBoxSizer(wxVERTICAL);
-    m_projectPanel->SetSizer(boxSizer13);
+    wxBoxSizer* boxSizer38 = new wxBoxSizer(wxVERTICAL);
+    m_projectPanel->SetSizer(boxSizer38);
     
-    wxBoxSizer* boxSizer16 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* boxSizer39 = new wxBoxSizer(wxHORIZONTAL);
     
-    boxSizer13->Add(boxSizer16, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    boxSizer38->Add(boxSizer39, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
     
     m_newProject = new wxStaticText(m_projectPanel, wxID_ANY, _("Create New Project"), wxDefaultPosition, wxDLG_UNIT(m_projectPanel, wxSize(-1,-1)), 0);
     
-    boxSizer16->Add(m_newProject, 0, wxALL, WXC_FROM_DIP(5));
+    boxSizer39->Add(m_newProject, 0, wxALL, WXC_FROM_DIP(5));
     
     m_addProject = new wxStaticText(m_projectPanel, wxID_ANY, _("Add Existing Project"), wxDefaultPosition, wxDLG_UNIT(m_projectPanel, wxSize(-1,-1)), 0);
     
-    boxSizer16->Add(m_addProject, 0, wxALL, WXC_FROM_DIP(5));
-    
-    wxGridSizer* gridSizer19 = new wxGridSizer(2, 2, 0, 0);
-    
-    boxSizer13->Add(gridSizer19, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    boxSizer39->Add(m_addProject, 0, wxALL, WXC_FROM_DIP(5));
     
     m_enginePanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTAB_TRAVERSAL);
     m_enginePanel->Hide();
     
-    boxSizer1->Add(m_enginePanel, 0, wxALL, WXC_FROM_DIP(5));
+    boxSizer56->Add(m_enginePanel, 0, wxEXPAND, WXC_FROM_DIP(5));
     
-    wxBoxSizer* boxSizer132 = new wxBoxSizer(wxVERTICAL);
-    m_enginePanel->SetSizer(boxSizer132);
+    wxBoxSizer* boxSizer384 = new wxBoxSizer(wxVERTICAL);
+    m_enginePanel->SetSizer(boxSizer384);
     
-    wxBoxSizer* boxSizer163 = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* boxSizer395 = new wxBoxSizer(wxHORIZONTAL);
     
-    boxSizer132->Add(boxSizer163, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    boxSizer384->Add(boxSizer395, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
     
     m_newEngine = new wxStaticText(m_enginePanel, wxID_ANY, _("Create New Engine"), wxDefaultPosition, wxDLG_UNIT(m_enginePanel, wxSize(-1,-1)), 0);
     
-    boxSizer163->Add(m_newEngine, 0, wxALL, WXC_FROM_DIP(5));
+    boxSizer395->Add(m_newEngine, 0, wxALL, WXC_FROM_DIP(5));
     
     m_addEngine = new wxStaticText(m_enginePanel, wxID_ANY, _("Add Existing Engine"), wxDefaultPosition, wxDLG_UNIT(m_enginePanel, wxSize(-1,-1)), 0);
     
-    boxSizer163->Add(m_addEngine, 0, wxALL, WXC_FROM_DIP(5));
+    boxSizer395->Add(m_addEngine, 0, wxALL, WXC_FROM_DIP(5));
     
-    wxGridSizer* gridSizer196 = new wxGridSizer(2, 2, 0, 0);
-    
-    boxSizer132->Add(gridSizer196, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
-    m_mainMenuBar = new wxMenuBar(0);
-    this->SetMenuBar(m_mainMenuBar);
+    m_statusBar32 = new wxStatusBar(this, wxID_ANY, wxSTB_DEFAULT_STYLE);
+    m_statusBar32->SetFieldsCount(1);
+    this->SetStatusBar(m_statusBar32);
     
     SetName(wxT("MainFrameBaseClass"));
-    SetMinClientSize(wxSize(600,400));
-    SetSize(wxDLG_UNIT(this, wxSize(600,400)));
+    SetMinClientSize(wxSize(600,350));
+    SetSize(wxDLG_UNIT(this, wxSize(600,350)));
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }

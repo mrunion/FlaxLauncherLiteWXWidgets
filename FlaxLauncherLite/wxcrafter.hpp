@@ -15,10 +15,11 @@
 #include <wx/iconbndl.h>
 #include <wx/artprov.h>
 #include <wx/sizer.h>
+#include <wx/menu.h>
 #include <wx/panel.h>
 #include <wx/statbmp.h>
 #include <wx/stattext.h>
-#include <wx/menu.h>
+#include <wx/statusbr.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
 #include <wx/persist/toplevel.h>
@@ -40,8 +41,9 @@
 class MainFrameBaseClass : public wxFrame
 {
 protected:
+    wxMenuBar* m_menuBar31;
     wxPanel* m_mainPanel;
-    wxStaticBitmap* m_staticBitmap11;
+    wxStaticBitmap* m_staticBitmap44;
     wxStaticText* m_projects;
     wxStaticText* m_engines;
     wxPanel* m_projectPanel;
@@ -50,7 +52,7 @@ protected:
     wxPanel* m_enginePanel;
     wxStaticText* m_newEngine;
     wxStaticText* m_addEngine;
-    wxMenuBar* m_mainMenuBar;
+    wxStatusBar* m_statusBar32;
 
 protected:
     virtual void OnProjectsLeftUp(wxMouseEvent& event) { event.Skip(); }
@@ -61,7 +63,8 @@ protected:
     virtual void OnAddEngineLeftUp(wxMouseEvent& event) { event.Skip(); }
 
 public:
-    wxStaticBitmap* GetStaticBitmap11() { return m_staticBitmap11; }
+    wxMenuBar* GetMenuBar31() { return m_menuBar31; }
+    wxStaticBitmap* GetStaticBitmap44() { return m_staticBitmap44; }
     wxStaticText* GetProjects() { return m_projects; }
     wxStaticText* GetEngines() { return m_engines; }
     wxPanel* GetMainPanel() { return m_mainPanel; }
@@ -71,8 +74,8 @@ public:
     wxStaticText* GetNewEngine() { return m_newEngine; }
     wxStaticText* GetAddEngine() { return m_addEngine; }
     wxPanel* GetEnginePanel() { return m_enginePanel; }
-    wxMenuBar* GetMainMenuBar() { return m_mainMenuBar; }
-    MainFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Launcher Lite"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(600,400), long style = wxCAPTION|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxSYSTEM_MENU|wxCLOSE_BOX);
+    wxStatusBar* GetStatusBar32() { return m_statusBar32; }
+    MainFrameBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Launcher Lite"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(600,350), long style = wxDEFAULT_FRAME_STYLE);
     virtual ~MainFrameBaseClass();
 };
 
