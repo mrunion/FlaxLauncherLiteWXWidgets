@@ -238,12 +238,23 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     wxBoxSizer* boxSizer581 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(boxSizer581);
     
-    wxFlexGridSizer* flexGridSizer592 = new wxFlexGridSizer(2, 2, 0, 0);
+    wxFlexGridSizer* flexGridSizer592 = new wxFlexGridSizer(4, 2, 0, 0);
     flexGridSizer592->SetFlexibleDirection( wxBOTH );
     flexGridSizer592->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     flexGridSizer592->AddGrowableCol(1);
     
     boxSizer581->Add(flexGridSizer592, 1, wxALL|wxEXPAND, WXC_FROM_DIP(10));
+    
+    m_staticText81 = new wxStaticText(this, wxID_ANY, _("Engine"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    
+    flexGridSizer592->Add(m_staticText81, 0, wxALL, WXC_FROM_DIP(5));
+    
+    wxArrayString m_engineChoiceArr;
+    m_engineChoiceArr.Add(_("Engine 1"));
+    m_engineChoiceArr.Add(_("Engine 2"));
+    m_engineChoice = new wxChoice(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), m_engineChoiceArr, 0);
+    
+    flexGridSizer592->Add(m_engineChoice, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
     m_staticText603 = new wxStaticText(this, wxID_ANY, _("Project Name"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
     
@@ -264,6 +275,16 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     
     flexGridSizer592->Add(m_projectPath, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
+    m_staticText6251 = new wxStaticText(this, wxID_ANY, _("Location"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    m_staticText6251->Hide();
+    
+    flexGridSizer592->Add(m_staticText6251, 0, wxALL, WXC_FROM_DIP(5));
+    
+    m_projectFile = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a file"), wxT("*"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL|wxFLP_FILE_MUST_EXIST);
+    m_projectFile->Hide();
+    
+    flexGridSizer592->Add(m_projectFile, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    
     m_stdBtnSizer647 = new wxStdDialogButtonSizer();
     
     boxSizer581->Add(m_stdBtnSizer647, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
@@ -276,8 +297,8 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     m_stdBtnSizer647->Realize();
     
     SetName(wxT("FlaxProjectDlgBaseClass"));
-    SetMinClientSize(wxSize(450,150));
-    SetSize(wxDLG_UNIT(this, wxSize(450,200)));
+    SetMinClientSize(wxSize(450,200));
+    SetSize(wxDLG_UNIT(this, wxSize(450,250)));
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }

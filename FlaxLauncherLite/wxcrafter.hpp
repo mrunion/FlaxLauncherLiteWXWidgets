@@ -24,6 +24,8 @@
 #include <wx/textctrl.h>
 #include <wx/filepicker.h>
 #include <wx/button.h>
+#include <wx/choice.h>
+#include <wx/arrstr.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
 #include <wx/persist/toplevel.h>
@@ -110,10 +112,14 @@ public:
 class FlaxProjectDlgBaseClass : public wxDialog
 {
 protected:
+    wxStaticText* m_staticText81;
+    wxChoice* m_engineChoice;
     wxStaticText* m_staticText603;
     wxTextCtrl* m_projectName;
     wxStaticText* m_staticText625;
     wxDirPickerCtrl* m_projectPath;
+    wxStaticText* m_staticText6251;
+    wxFilePickerCtrl* m_projectFile;
     wxStdDialogButtonSizer* m_stdBtnSizer647;
     wxButton* m_OKBtn;
     wxButton* m_CancelBtn;
@@ -121,11 +127,15 @@ protected:
 protected:
 
 public:
+    wxStaticText* GetStaticText81() { return m_staticText81; }
+    wxChoice* GetEngineChoice() { return m_engineChoice; }
     wxStaticText* GetStaticText603() { return m_staticText603; }
     wxTextCtrl* GetProjectName() { return m_projectName; }
     wxStaticText* GetStaticText625() { return m_staticText625; }
     wxDirPickerCtrl* GetProjectPath() { return m_projectPath; }
-    FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(450,200), long style = wxDEFAULT_DIALOG_STYLE);
+    wxStaticText* GetStaticText6251() { return m_staticText6251; }
+    wxFilePickerCtrl* GetProjectFile() { return m_projectFile; }
+    FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(450,250), long style = wxDEFAULT_DIALOG_STYLE);
     virtual ~FlaxProjectDlgBaseClass();
 };
 
