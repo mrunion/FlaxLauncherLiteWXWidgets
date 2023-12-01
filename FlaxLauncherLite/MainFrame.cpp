@@ -68,6 +68,6 @@ void MainFrame::OnCreateProjectLeftUp(wxMouseEvent& event)
     FlaxProjectDlg dialog(this);
     
     if (dialog.ShowModal() == wxID_OK) {
-        // Create a flax project using the selected engine
+        wxMessageBox(dialog.GetProjectName(), "MR_DEBUG");
     }
 }

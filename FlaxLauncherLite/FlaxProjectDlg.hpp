@@ -10,23 +10,26 @@ public:
     
     // Property accessors
     void SetProjectName(wxString projectName) {
-        m_projectName = projectName;
+        m_projectNameData = projectName;
     }
     
     wxString GetProjectName() {
-        return m_projectName;
+        return m_projectNameData;
     }
     
     void SetProjectPath(wxString projectPath) {
-        m_projectPath = projectPath;
+        m_projectPathData = projectPath;
     }
     
     wxString GetProjectPath() {
-        return m_projectPath;
+        return m_projectPathData;
     }
 
+protected:
+    void SetValidators();
+
 private:
-    wxString m_projectName = wxT("");
-    wxString m_projectPath = wxT("");
+    wxString m_projectNameData = wxEmptyString;
+    wxString m_projectPathData = wxEmptyString;
 };
 #endif // FLAXPROJECTDLG_HPP
