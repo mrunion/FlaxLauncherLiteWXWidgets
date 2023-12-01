@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Matt Runion
-Date                   :=30/11/2023
+Date                   :=01/12/2023
 CodeLitePath           :=/Users/mrunion/.codelite
 MakeDirCommand         :=mkdir -p
 LinkerName             :=/usr/bin/clang++
@@ -62,7 +62,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/Applications/codelite.app/Contents/SharedSupport/
-Objects0=$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) 
 
 
 
@@ -100,30 +100,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix): FlaxEngineDlg.cpp $(IntermediateDirectory)/FlaxEngineDlg.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/FlaxEngineDlg.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/FlaxEngineDlg.cpp$(DependSuffix): FlaxEngineDlg.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FlaxEngineDlg.cpp$(DependSuffix) -MM FlaxEngineDlg.cpp
-
-$(IntermediateDirectory)/FlaxEngineDlg.cpp$(PreprocessSuffix): FlaxEngineDlg.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FlaxEngineDlg.cpp$(PreprocessSuffix) FlaxEngineDlg.cpp
-
-$(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix): FlaxProjectDlg.cpp $(IntermediateDirectory)/FlaxProjectDlg.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/FlaxProjectDlg.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/FlaxProjectDlg.cpp$(DependSuffix): FlaxProjectDlg.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FlaxProjectDlg.cpp$(DependSuffix) -MM FlaxProjectDlg.cpp
-
-$(IntermediateDirectory)/FlaxProjectDlg.cpp$(PreprocessSuffix): FlaxProjectDlg.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FlaxProjectDlg.cpp$(PreprocessSuffix) FlaxProjectDlg.cpp
-
-$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix): MainFrame.cpp $(IntermediateDirectory)/MainFrame.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/MainFrame.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/MainFrame.cpp$(DependSuffix): MainFrame.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/MainFrame.cpp$(DependSuffix) -MM MainFrame.cpp
-
-$(IntermediateDirectory)/MainFrame.cpp$(PreprocessSuffix): MainFrame.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/MainFrame.cpp$(PreprocessSuffix) MainFrame.cpp
-
 $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix): wxcrafter.cpp $(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/wxcrafter.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix): wxcrafter.cpp
@@ -140,6 +116,14 @@ $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(DependSuffix): wxcrafter_bitmaps
 $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix): wxcrafter_bitmaps.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix) wxcrafter_bitmaps.cpp
 
+$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix): MainFrame.cpp $(IntermediateDirectory)/MainFrame.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/MainFrame.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/MainFrame.cpp$(DependSuffix): MainFrame.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/MainFrame.cpp$(DependSuffix) -MM MainFrame.cpp
+
+$(IntermediateDirectory)/MainFrame.cpp$(PreprocessSuffix): MainFrame.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/MainFrame.cpp$(PreprocessSuffix) MainFrame.cpp
+
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
@@ -147,6 +131,22 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix): FlaxProjectDlg.cpp $(IntermediateDirectory)/FlaxProjectDlg.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/FlaxProjectDlg.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/FlaxProjectDlg.cpp$(DependSuffix): FlaxProjectDlg.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FlaxProjectDlg.cpp$(DependSuffix) -MM FlaxProjectDlg.cpp
+
+$(IntermediateDirectory)/FlaxProjectDlg.cpp$(PreprocessSuffix): FlaxProjectDlg.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FlaxProjectDlg.cpp$(PreprocessSuffix) FlaxProjectDlg.cpp
+
+$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix): FlaxEngineDlg.cpp $(IntermediateDirectory)/FlaxEngineDlg.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/FlaxEngineDlg.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/FlaxEngineDlg.cpp$(DependSuffix): FlaxEngineDlg.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FlaxEngineDlg.cpp$(DependSuffix) -MM FlaxEngineDlg.cpp
+
+$(IntermediateDirectory)/FlaxEngineDlg.cpp$(PreprocessSuffix): FlaxEngineDlg.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FlaxEngineDlg.cpp$(PreprocessSuffix) FlaxEngineDlg.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

@@ -37,6 +37,15 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_menuBar31 = new wxMenuBar(0);
     this->SetMenuBar(m_menuBar31);
     
+    m_menu78 = new wxMenu();
+    m_menuBar31->Append(m_menu78, _("Main Menu"));
+    
+    M_menuItemAbout = new wxMenuItem(m_menu78, wxID_ABOUT, _("About..."), wxT(""), wxITEM_NORMAL);
+    m_menu78->Append(M_menuItemAbout);
+    
+    m_menuItemExit = new wxMenuItem(m_menu78, wxID_EXIT, _("Quit"), _("Exit Flax Launcher Lite"), wxITEM_NORMAL);
+    m_menu78->Append(m_menuItemExit);
+    
     wxFlexGridSizer* flexGridSizer30 = new wxFlexGridSizer(0, 2, 0, 5);
     flexGridSizer30->SetFlexibleDirection( wxBOTH );
     flexGridSizer30->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
@@ -59,11 +68,11 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     
     m_projects = new wxStaticText(m_mainPanel, wxID_ANY, _("Projects"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
     
-    boxSizer37->Add(m_projects, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
+    boxSizer37->Add(m_projects, 0, wxALL|wxALIGN_CENTER, WXC_FROM_DIP(5));
     
     m_engines = new wxStaticText(m_mainPanel, wxID_ANY, _("Engines"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
     
-    boxSizer37->Add(m_engines, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
+    boxSizer37->Add(m_engines, 0, wxALL|wxALIGN_CENTER, WXC_FROM_DIP(5));
     m_mainPanel->SetMinSize(wxSize(130,-1));
     
     wxBoxSizer* boxSizer56 = new wxBoxSizer(wxVERTICAL);
@@ -130,6 +139,9 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
         wxPersistenceManager::Get().Restore(this);
     }
     // Connect events
+    this->Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnAbout, this, M_menuItemAbout->GetId());
+    this->Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnExit, this, m_menuItemExit->GetId());
+    
     m_projects->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnProjectsLeftUp, this);
     m_engines->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);
@@ -141,6 +153,9 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
 
 MainFrameBaseClass::~MainFrameBaseClass()
 {
+    this->Unbind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnAbout, this, M_menuItemAbout->GetId());
+    this->Unbind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnExit, this, m_menuItemExit->GetId());
+    
     m_projects->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnProjectsLeftUp, this);
     m_engines->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);

@@ -46,6 +46,9 @@ class MainFrameBaseClass : public wxFrame
 {
 protected:
     wxMenuBar* m_menuBar31;
+    wxMenu* m_menu78;
+    wxMenuItem* M_menuItemAbout;
+    wxMenuItem* m_menuItemExit;
     wxPanel* m_mainPanel;
     wxStaticBitmap* m_staticBitmap44;
     wxStaticText* m_projects;
@@ -59,6 +62,9 @@ protected:
     wxStatusBar* m_statusBar32;
 
 protected:
+    virtual void OnAbout(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnExit(wxCommandEvent& event) { event.Skip(); }
+    
     virtual void OnProjectsLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnEnginesLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnCreateProjectLeftUp(wxMouseEvent& event) { event.Skip(); }
