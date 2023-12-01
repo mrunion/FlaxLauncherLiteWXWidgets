@@ -47,7 +47,7 @@ class MainFrameBaseClass : public wxFrame
 protected:
     wxMenuBar* m_menuBar31;
     wxMenu* m_menu78;
-    wxMenuItem* M_menuItemAbout;
+    wxMenuItem* m_menuItemAbout;
     wxMenuItem* m_menuItemExit;
     wxPanel* m_mainPanel;
     wxStaticBitmap* m_staticBitmap44;
@@ -57,19 +57,14 @@ protected:
     wxStaticText* m_newProject;
     wxStaticText* m_addProject;
     wxPanel* m_enginePanel;
-    wxStaticText* m_newEngine;
     wxStaticText* m_addEngine;
     wxStatusBar* m_statusBar32;
 
 protected:
-    virtual void OnAbout(wxCommandEvent& event) { event.Skip(); }
-    virtual void OnExit(wxCommandEvent& event) { event.Skip(); }
-    
     virtual void OnProjectsLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnEnginesLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnCreateProjectLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnAddProjectLeftUp(wxMouseEvent& event) { event.Skip(); }
-    virtual void OnCreateEngineLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnAddEngineLeftUp(wxMouseEvent& event) { event.Skip(); }
 
 public:
@@ -81,7 +76,6 @@ public:
     wxStaticText* GetNewProject() { return m_newProject; }
     wxStaticText* GetAddProject() { return m_addProject; }
     wxPanel* GetProjectPanel() { return m_projectPanel; }
-    wxStaticText* GetNewEngine() { return m_newEngine; }
     wxStaticText* GetAddEngine() { return m_addEngine; }
     wxPanel* GetEnginePanel() { return m_enginePanel; }
     wxStatusBar* GetStatusBar32() { return m_statusBar32; }

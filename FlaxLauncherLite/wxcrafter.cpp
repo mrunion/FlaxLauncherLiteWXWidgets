@@ -40,8 +40,8 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_menu78 = new wxMenu();
     m_menuBar31->Append(m_menu78, _("Main Menu"));
     
-    M_menuItemAbout = new wxMenuItem(m_menu78, wxID_ABOUT, _("About..."), wxT(""), wxITEM_NORMAL);
-    m_menu78->Append(M_menuItemAbout);
+    m_menuItemAbout = new wxMenuItem(m_menu78, wxID_ABOUT, _("About..."), wxT(""), wxITEM_NORMAL);
+    m_menu78->Append(m_menuItemAbout);
     
     m_menuItemExit = new wxMenuItem(m_menu78, wxID_EXIT, _("Quit"), _("Exit Flax Launcher Lite"), wxITEM_NORMAL);
     m_menu78->Append(m_menuItemExit);
@@ -110,10 +110,6 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     
     boxSizer384->Add(boxSizer395, 0, wxALL|wxALIGN_RIGHT, WXC_FROM_DIP(5));
     
-    m_newEngine = new wxStaticText(m_enginePanel, wxID_ANY, _("Create New Engine"), wxDefaultPosition, wxDLG_UNIT(m_enginePanel, wxSize(-1,-1)), 0);
-    
-    boxSizer395->Add(m_newEngine, 0, wxALL, WXC_FROM_DIP(5));
-    
     m_addEngine = new wxStaticText(m_enginePanel, wxID_ANY, _("Add Existing Engine"), wxDefaultPosition, wxDLG_UNIT(m_enginePanel, wxSize(-1,-1)), 0);
     
     boxSizer395->Add(m_addEngine, 0, wxALL, WXC_FROM_DIP(5));
@@ -139,28 +135,20 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
         wxPersistenceManager::Get().Restore(this);
     }
     // Connect events
-    this->Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnAbout, this, M_menuItemAbout->GetId());
-    this->Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnExit, this, m_menuItemExit->GetId());
-    
     m_projects->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnProjectsLeftUp, this);
     m_engines->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);
     m_addProject->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddProjectLeftUp, this);
-    m_newEngine->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateEngineLeftUp, this);
     m_addEngine->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddEngineLeftUp, this);
     
 }
 
 MainFrameBaseClass::~MainFrameBaseClass()
 {
-    this->Unbind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnAbout, this, M_menuItemAbout->GetId());
-    this->Unbind(wxEVT_COMMAND_MENU_SELECTED, &MainFrameBaseClass::OnExit, this, m_menuItemExit->GetId());
-    
     m_projects->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnProjectsLeftUp, this);
     m_engines->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);
     m_addProject->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddProjectLeftUp, this);
-    m_newEngine->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateEngineLeftUp, this);
     m_addEngine->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddEngineLeftUp, this);
     
 }
@@ -200,7 +188,7 @@ FlaxEngineDlgBaseClass::FlaxEngineDlgBaseClass(wxWindow* parent, wxWindowID id, 
     
     flexGridSizer59->Add(m_staticText62, 0, wxALL, WXC_FROM_DIP(5));
     
-    m_enginePath = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select Flax Engine"), wxT("*"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL|wxFLP_FILE_MUST_EXIST);
+    m_enginePath = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select Flax Engine"), wxT("*"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL);
     
     flexGridSizer59->Add(m_enginePath, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
@@ -257,7 +245,7 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     
     boxSizer581->Add(flexGridSizer592, 1, wxALL|wxEXPAND, WXC_FROM_DIP(10));
     
-    m_staticText603 = new wxStaticText(this, wxID_ANY, _("Engine Name"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    m_staticText603 = new wxStaticText(this, wxID_ANY, _("Project Name"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
     
     flexGridSizer592->Add(m_staticText603, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
@@ -272,7 +260,7 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     
     flexGridSizer592->Add(m_staticText625, 0, wxALL, WXC_FROM_DIP(5));
     
-    m_projectPath = new wxDirPickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a Project Folder"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxDIRP_SMALL|wxDIRP_DEFAULT_STYLE);
+    m_projectPath = new wxDirPickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a Project Folder"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxDIRP_SMALL|wxDIRP_DEFAULT_STYLE|wxDIRP_DIR_MUST_EXIST);
     
     flexGridSizer592->Add(m_projectPath, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     

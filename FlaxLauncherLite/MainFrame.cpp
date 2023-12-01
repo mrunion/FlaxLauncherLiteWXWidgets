@@ -1,4 +1,6 @@
 #include "MainFrame.hpp"
+#include "FlaxEngineDlg.hpp"
+#include "FlaxProjectDlg.hpp"
 #include <wx/aboutdlg.h>
 #include <wx/msgdlg.h>
 
@@ -26,9 +28,13 @@ void MainFrame::OnExit(wxCommandEvent& event)
     wxUnusedVar(event);
     Close();
 }
+
+/*
 void MainFrame::OnLeftUp(wxMouseEvent& event)
 {
 }
+ * */
+ 
 void MainFrame::OnProjectsLeftUp(wxMouseEvent& event)
 {
     // Show the Projects panel and hide the Egnines panel
@@ -43,15 +49,25 @@ void MainFrame::OnEnginesLeftUp(wxMouseEvent& event)
     m_projectPanel->Show(false);
     GetSizer()->Layout();
 }
+
 void MainFrame::OnAddEngineLeftUp(wxMouseEvent& event)
 {
+    FlaxEngineDlg dialog(this);
+    
+    if (dialog.ShowModal() == wxID_OK) {
+        // Add Engine
+    }
 }
+
 void MainFrame::OnAddProjectLeftUp(wxMouseEvent& event)
 {
 }
-void MainFrame::OnCreateEngineLeftUp(wxMouseEvent& event)
-{
-}
+
 void MainFrame::OnCreateProjectLeftUp(wxMouseEvent& event)
 {
+    FlaxProjectDlg dialog(this);
+    
+    if (dialog.ShowModal() == wxID_OK) {
+        // Create a flax project using the selected engine
+    }
 }

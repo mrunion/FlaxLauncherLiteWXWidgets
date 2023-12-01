@@ -1179,87 +1179,6 @@
 																}, {
 																	"type":	"string",
 																	"m_label":	"Name:",
-																	"m_value":	"m_newEngine"
-																}, {
-																	"type":	"multi-string",
-																	"m_label":	"Tooltip:",
-																	"m_value":	""
-																}, {
-																	"type":	"colour",
-																	"m_label":	"Bg Colour:",
-																	"colour":	"<Default>"
-																}, {
-																	"type":	"colour",
-																	"m_label":	"Fg Colour:",
-																	"colour":	"<Default>"
-																}, {
-																	"type":	"font",
-																	"m_label":	"Font:",
-																	"m_value":	""
-																}, {
-																	"type":	"bool",
-																	"m_label":	"Hidden",
-																	"m_value":	false
-																}, {
-																	"type":	"bool",
-																	"m_label":	"Disabled",
-																	"m_value":	false
-																}, {
-																	"type":	"bool",
-																	"m_label":	"Focused",
-																	"m_value":	false
-																}, {
-																	"type":	"string",
-																	"m_label":	"Class Name:",
-																	"m_value":	""
-																}, {
-																	"type":	"string",
-																	"m_label":	"Include File:",
-																	"m_value":	""
-																}, {
-																	"type":	"string",
-																	"m_label":	"Style:",
-																	"m_value":	""
-																}, {
-																	"type":	"multi-string",
-																	"m_label":	"Label:",
-																	"m_value":	"Create New Engine"
-																}, {
-																	"type":	"string",
-																	"m_label":	"Wrap:",
-																	"m_value":	"-1"
-																}],
-															"m_events":	[{
-																	"m_eventName":	"wxEVT_LEFT_UP",
-																	"m_eventClass":	"wxMouseEvent",
-																	"m_functionNameAndSignature":	"OnCreateEngineLeftUp(wxMouseEvent& event)",
-																	"m_description":	"Process a wxEVT_LEFT_UP event.",
-																	"m_noBody":	false
-																}],
-															"m_children":	[]
-														}, {
-															"m_type":	4405,
-															"proportion":	0,
-															"border":	5,
-															"gbSpan":	"1,1",
-															"gbPosition":	"0,0",
-															"m_styles":	[],
-															"m_sizerFlags":	["wxALL", "wxLEFT", "wxRIGHT", "wxTOP", "wxBOTTOM"],
-															"m_properties":	[{
-																	"type":	"winid",
-																	"m_label":	"ID:",
-																	"m_winid":	"wxID_ANY"
-																}, {
-																	"type":	"string",
-																	"m_label":	"Size:",
-																	"m_value":	"-1,-1"
-																}, {
-																	"type":	"string",
-																	"m_label":	"Minimum Size:",
-																	"m_value":	"-1,-1"
-																}, {
-																	"type":	"string",
-																	"m_label":	"Name:",
 																	"m_value":	"m_addEngine"
 																}, {
 																	"type":	"multi-string",
@@ -1834,7 +1753,7 @@
 									"border":	5,
 									"gbSpan":	"1,1",
 									"gbPosition":	"0,0",
-									"m_styles":	["wxFLP_DEFAULT_STYLE", "wxFLP_SMALL", "wxFLP_FILE_MUST_EXIST"],
+									"m_styles":	["wxFLP_DEFAULT_STYLE", "wxFLP_SMALL"],
 									"m_sizerFlags":	["wxALL", "wxLEFT", "wxRIGHT", "wxTOP", "wxBOTTOM", "wxEXPAND"],
 									"m_properties":	[{
 											"type":	"winid",
@@ -2292,7 +2211,7 @@
 										}, {
 											"type":	"multi-string",
 											"m_label":	"Label:",
-											"m_value":	"Engine Name"
+											"m_value":	"Project Name"
 										}, {
 											"type":	"string",
 											"m_label":	"Wrap:",
@@ -2472,7 +2391,7 @@
 									"border":	5,
 									"gbSpan":	"1,1",
 									"gbPosition":	"0,0",
-									"m_styles":	["wxDIRP_SMALL", "wxDIRP_DEFAULT_STYLE"],
+									"m_styles":	["wxDIRP_SMALL", "wxDIRP_DEFAULT_STYLE", "wxDIRP_DIR_MUST_EXIST"],
 									"m_sizerFlags":	["wxALL", "wxLEFT", "wxRIGHT", "wxTOP", "wxBOTTOM", "wxEXPAND"],
 									"m_properties":	[{
 											"type":	"winid",
