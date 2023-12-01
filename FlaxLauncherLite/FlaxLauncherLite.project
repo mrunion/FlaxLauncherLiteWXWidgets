@@ -15,6 +15,7 @@
     <File Name="wxcrafter_bitmaps.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="include">
+    <File Name="FlaxData.hpp"/>
     <File Name="FlaxEngineDlg.hpp"/>
     <File Name="FlaxProjectDlg.hpp"/>
     <File Name="MainFrame.hpp"/>

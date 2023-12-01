@@ -135,6 +135,8 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
         wxPersistenceManager::Get().Restore(this);
     }
     // Connect events
+    this->Bind(wxEVT_MENU, &MainFrameBaseClass::OnAbout, this,m_menuItemAbout->GetId());
+    this->Bind(wxEVT_MENU, &MainFrameBaseClass::OnExit, this,m_menuItemExit->GetId());
     m_projects->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnProjectsLeftUp, this);
     m_engines->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);
@@ -145,6 +147,8 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
 
 MainFrameBaseClass::~MainFrameBaseClass()
 {
+    this->Unbind(wxEVT_MENU, &MainFrameBaseClass::OnAbout, this,m_menuItemAbout->GetId());
+    this->Unbind(wxEVT_MENU, &MainFrameBaseClass::OnExit, this,m_menuItemExit->GetId());
     m_projects->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnProjectsLeftUp, this);
     m_engines->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);

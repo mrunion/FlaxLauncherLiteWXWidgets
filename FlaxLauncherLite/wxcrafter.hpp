@@ -63,6 +63,8 @@ protected:
     wxStatusBar* m_statusBar32;
 
 protected:
+    virtual void OnAbout(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnExit(wxCommandEvent& event) { event.Skip(); }
     virtual void OnProjectsLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnEnginesLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnCreateProjectLeftUp(wxMouseEvent& event) { event.Skip(); }

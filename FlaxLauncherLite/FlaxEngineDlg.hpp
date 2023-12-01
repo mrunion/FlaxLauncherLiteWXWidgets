@@ -9,24 +9,15 @@ public:
     virtual ~FlaxEngineDlg();
     
     // Property accessors
-    void SetEngineName(wxString engineName) {
-        m_engineName = engineName;
-    }
+    virtual void SetEngineName(wxString engineName);
+    virtual wxString GetEngineName();
+    virtual void SetEnginePath(wxString enginePath);
+    virtual wxString GetEnginePath();
     
-    wxString GetEngineName() {
-        return m_engineName;
-    }
-    
-    void SetEnginePath(wxString enginePath) {
-        m_enginePath = enginePath;
-    }
-    
-    wxString GetEnginePath() {
-        return m_enginePath;
-    }
+    virtual bool TransferDataFromWindow();
 
 private:
-    wxString m_engineName = wxT("");
-    wxString m_enginePath = wxT("");
+    wxString m_engineNameData = wxEmptyString;
+    wxString m_enginePathData = wxEmptyString;
 };
 #endif // FLAXENGINEDLG_HPP

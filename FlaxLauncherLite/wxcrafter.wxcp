@@ -255,7 +255,13 @@
 											"m_label":	"Checked",
 											"m_value":	false
 										}],
-									"m_events":	[],
+									"m_events":	[{
+											"m_eventName":	"wxEVT_MENU",
+											"m_eventClass":	"wxCommandEvent",
+											"m_functionNameAndSignature":	"OnAbout(wxCommandEvent& event)",
+											"m_description":	"Menu item has been clicked",
+											"m_noBody":	false
+										}],
 									"m_children":	[]
 								}, {
 									"m_type":	4459,
@@ -299,7 +305,13 @@
 											"m_label":	"Checked",
 											"m_value":	false
 										}],
-									"m_events":	[],
+									"m_events":	[{
+											"m_eventName":	"wxEVT_MENU",
+											"m_eventClass":	"wxCommandEvent",
+											"m_functionNameAndSignature":	"OnExit(wxCommandEvent& event)",
+											"m_description":	"Menu item has been clicked",
+											"m_noBody":	false
+										}],
 									"m_children":	[]
 								}]
 						}]
