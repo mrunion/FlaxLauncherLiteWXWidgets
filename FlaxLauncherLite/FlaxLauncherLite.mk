@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Matt Runion
-Date                   :=01/12/2023
+Date                   :=02/12/2023
 CodeLitePath           :=/Users/mrunion/.codelite
 MakeDirCommand         :=mkdir -p
 LinkerName             :=/usr/bin/clang++
@@ -62,7 +62,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/Applications/codelite.app/Contents/SharedSupport/
-Objects0=$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxProjectDlg.cpp$(ObjectSuffix) $(IntermediateDirectory)/FlaxEngineDlg.cpp$(ObjectSuffix) 
 
 
 
@@ -86,13 +86,16 @@ MakeIntermediateDirs:
 
 $(IntermediateDirectory)/.d:
 	@$(MakeDirCommand) "$(IntermediateDirectory)"
-PrePreBuild: $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns
+PrePreBuild: $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png
 ## rule to copy the Info.plist file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist: Info.plist
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents' && cp -f Info.plist '$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist'
 ## rule to copy the icon file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns: FlaxLauncherLite.icns
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' && cp -f FlaxLauncherLite.icns '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns'
+## rule to copy fll.png files into the bundle
+$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png: images/fll.png
+	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' && cp -f images/fll.png '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/fll.png'
 
 PreBuild:
 
@@ -100,14 +103,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix): wxcrafter.cpp $(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/wxcrafter.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix): wxcrafter.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix) -MM wxcrafter.cpp
-
-$(IntermediateDirectory)/wxcrafter.cpp$(PreprocessSuffix): wxcrafter.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wxcrafter.cpp$(PreprocessSuffix) wxcrafter.cpp
-
 $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix): wxcrafter_bitmaps.cpp $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/wxcrafter_bitmaps.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(DependSuffix): wxcrafter_bitmaps.cpp
@@ -115,6 +110,14 @@ $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(DependSuffix): wxcrafter_bitmaps
 
 $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix): wxcrafter_bitmaps.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wxcrafter_bitmaps.cpp$(PreprocessSuffix) wxcrafter_bitmaps.cpp
+
+$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix): wxcrafter.cpp $(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/wxcrafter.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix): wxcrafter.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/wxcrafter.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/wxcrafter.cpp$(DependSuffix) -MM wxcrafter.cpp
+
+$(IntermediateDirectory)/wxcrafter.cpp$(PreprocessSuffix): wxcrafter.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/wxcrafter.cpp$(PreprocessSuffix) wxcrafter.cpp
 
 $(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix): MainFrame.cpp $(IntermediateDirectory)/MainFrame.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite/MainFrame.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/MainFrame.cpp$(ObjectSuffix) $(IncludePath)

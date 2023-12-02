@@ -65,13 +65,16 @@
       </CustomBuild>
       <AdditionalRules>
         <CustomPostBuild/>
-        <CustomPreBuild>$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns
+        <CustomPreBuild>$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png
 ## rule to copy the Info.plist file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist: Info.plist
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents' &amp;&amp; cp -f Info.plist '$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist'
 ## rule to copy the icon file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns: FlaxLauncherLite.icns
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' &amp;&amp; cp -f FlaxLauncherLite.icns '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns'
+## rule to copy fll.png files into the bundle
+$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png: images/fll.png
+	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' &amp;&amp; cp -f images/fll.png '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/fll.png'
 </CustomPreBuild>
       </AdditionalRules>
       <Completion EnableCpp11="no" EnableCpp14="no">
@@ -112,13 +115,16 @@ $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.
       </CustomBuild>
       <AdditionalRules>
         <CustomPostBuild/>
-        <CustomPreBuild>$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns
+        <CustomPreBuild>$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png
 ## rule to copy the Info.plist file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist: Info.plist
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents' &amp;&amp; cp -f Info.plist '$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist'
 ## rule to copy the icon file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns: FlaxLauncherLite.icns
-	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' &amp;&amp; cp -f FlaxLauncherLite.icns '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns'</CustomPreBuild>
+	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' &amp;&amp; cp -f FlaxLauncherLite.icns '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns'
+## rule to copy fll.png files into the bundle
+$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png: images/fll.png
+	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' &amp;&amp; cp -f images/fll.png '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/fll.png'</CustomPreBuild>
       </AdditionalRules>
       <Completion EnableCpp11="no" EnableCpp14="no">
         <ClangCmpFlagsC/>

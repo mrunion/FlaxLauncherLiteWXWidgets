@@ -6,6 +6,7 @@
 #include <wx/config.h>
 #include <wx/confbase.h>
 #include <wx/listctrl.h>
+#include <wx/gdicmn.h>
 
 MainFrame::MainFrame(wxWindow* parent)
     : MainFrameBaseClass(parent) {
@@ -146,7 +147,7 @@ void MainFrame::WriteProjectConfig(wxString projectName, wxString projectPath, w
 void MainFrame::SetupImageLists() {
     m_projectImageList = new wxImageList(32, 32);
     
-    wxBitmap bitmap(wxT("images/fll.png"), wxBITMAP_TYPE_PNG);
+    wxBitmap bitmap(wxT("fll"), wxBITMAP_TYPE_PNG_RESOURCE);
     m_projectImageList->Add(bitmap);
 }
 
@@ -163,6 +164,4 @@ void MainFrame::FillProjectListCtl() {
         
         m_projectsListCtl->InsertItem(li);
     }
-    
-    //GetSizer()->Layout();
 }
