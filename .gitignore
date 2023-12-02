@@ -2,6 +2,6 @@
 
 /.cache/
 /.codelite
-/build-Debug
-/build-Release
+/build-Debug*
+/build-Release*
 compile_commands.json

@@ -10,5 +10,9 @@
       <Environment/>
       <Project Name="FlaxLauncherLite" ConfigName="Release"/>
     </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Debug_MacOS">
+      <Environment/>
+      <Project Name="FlaxLauncherLite" ConfigName="Debug MacOS"/>
+    </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

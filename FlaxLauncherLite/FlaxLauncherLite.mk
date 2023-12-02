@@ -2,10 +2,10 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Debug
+## Debug_MacOS
 ProjectName            :=FlaxLauncherLite
-ConfigurationName      :=Debug
-WorkspaceConfiguration :=Debug
+ConfigurationName      :=Debug_MacOS
+WorkspaceConfiguration :=Debug_MacOS
 WorkspacePath          :=/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite
 ProjectPath            :=/Users/mrunion/Documents/wxwidgets/FlaxLauncherLite/FlaxLauncherLite
 IntermediateDirectory  :=../build-$(WorkspaceConfiguration)/FlaxLauncherLite
@@ -53,7 +53,7 @@ AR       := /usr/bin/ar rcu
 CXX      := /usr/bin/clang++
 CC       := /usr/bin/clang
 CXXFLAGS :=  -O0 -gdwarf-2 -std=c++11 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
-CFLAGS   :=  -O0 -gdwarf-2 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
+CFLAGS   :=  -O0 -gdwarf-2 -std=c++11 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
@@ -81,22 +81,24 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
 
+PostBuild:
+	@echo Executing Post Build commands ...
+	cp -f images/*.png '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/'
+	@echo Done
+
 MakeIntermediateDirs:
 	@$(MakeDirCommand) "$(IntermediateDirectory)"
 	@$(MakeDirCommand) "$(OutputDirectory)"
 
 $(IntermediateDirectory)/.d:
 	@$(MakeDirCommand) "$(IntermediateDirectory)"
-PrePreBuild: $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png
+PrePreBuild: $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns
 ## rule to copy the Info.plist file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist: Info.plist
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents' && cp -f Info.plist '$(IntermediateDirectory)/$(ProjectName).app/Contents/Info.plist'
 ## rule to copy the icon file into the bundle
 $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns: FlaxLauncherLite.icns
 	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' && cp -f FlaxLauncherLite.icns '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.icns'
-## rule to copy fll.png files into the bundle
-$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/images/fll.png: images/fll.png
-	mkdir -p '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/' && cp -f images/fll.png '$(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/fll.png'
 
 PreBuild:
 

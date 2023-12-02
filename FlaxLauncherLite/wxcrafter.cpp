@@ -59,7 +59,7 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     wxBoxSizer* boxSizer37 = new wxBoxSizer(wxVERTICAL);
     m_mainPanel->SetSizer(boxSizer37);
     
-    m_staticBitmap44 = new wxStaticBitmap(m_mainPanel, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("Logo")), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(64,64)), 0 );
+    m_staticBitmap44 = new wxStaticBitmap(m_mainPanel, wxID_ANY, wxXmlResource::Get()->LoadBitmap(wxT("logo_64x64")), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(64,64)), 0 );
     
     boxSizer37->Add(m_staticBitmap44, 0, wxALL|wxALIGN_CENTER, WXC_FROM_DIP(5));
     m_staticBitmap44->SetMinSize(wxSize(64,64));

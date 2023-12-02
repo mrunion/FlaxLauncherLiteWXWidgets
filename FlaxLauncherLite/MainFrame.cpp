@@ -149,10 +149,11 @@ void MainFrame::SetupImageLists() {
     m_engineImageList = new wxImageList(32, 32);
     m_projectImageList = new wxImageList(32, 32);
     
-    wxBitmap bitmap(wxT("fll"), wxBITMAP_TYPE_PNG_RESOURCE);
+    wxBitmap projectBitmap(wxT("project_32x32"), wxBITMAP_TYPE_PNG_RESOURCE);
+    wxBitmap engineBitmap(wxT("engine_32x32"), wxBITMAP_TYPE_PNG_RESOURCE);
     
-    m_projectImageList->Add(bitmap);
-    m_engineImageList->Add(bitmap);
+    m_projectImageList->Add(projectBitmap);
+    m_engineImageList->Add(engineBitmap);
 }
 
 void MainFrame::FillProjectListCtl() {
