@@ -98,9 +98,9 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     
     boxSizer39->Add(m_addProject, 0, wxALL, WXC_FROM_DIP(5));
     
-    m_listCtrl85 = new wxListCtrl(m_projectPanel, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(m_projectPanel, wxSize(-1,-1)), wxLC_SINGLE_SEL|wxLC_ICON);
+    m_projectsListCtl = new wxListCtrl(m_projectPanel, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(m_projectPanel, wxSize(-1,-1)), wxLC_SINGLE_SEL|wxLC_ICON);
     
-    boxSizer38->Add(m_listCtrl85, 0, wxEXPAND, WXC_FROM_DIP(5));
+    boxSizer38->Add(m_projectsListCtl, 1, wxEXPAND, WXC_FROM_DIP(5));
     
     m_enginePanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTAB_TRAVERSAL);
     m_enginePanel->Hide();
@@ -117,6 +117,10 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_addEngine = new wxStaticText(m_enginePanel, wxID_ANY, _("Add Existing Engine"), wxDefaultPosition, wxDLG_UNIT(m_enginePanel, wxSize(-1,-1)), 0);
     
     boxSizer395->Add(m_addEngine, 0, wxALL, WXC_FROM_DIP(5));
+    
+    m_enginesListCtl = new wxListCtrl(m_enginePanel, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(m_enginePanel, wxSize(-1,-1)), wxLC_SINGLE_SEL|wxLC_ICON);
+    
+    boxSizer384->Add(m_enginesListCtl, 1, wxEXPAND, WXC_FROM_DIP(5));
     
     m_statusBar32 = new wxStatusBar(this, wxID_ANY, wxSTB_DEFAULT_STYLE);
     m_statusBar32->SetFieldsCount(1);
@@ -275,21 +279,19 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     
     flexGridSizer592->Add(m_projectName, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
-    m_staticText625 = new wxStaticText(this, wxID_ANY, _("Location"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
+    m_projectPathCtlLabel = new wxStaticText(this, wxID_ANY, _("Location"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
     
-    flexGridSizer592->Add(m_staticText625, 0, wxALL, WXC_FROM_DIP(5));
+    flexGridSizer592->Add(m_projectPathCtlLabel, 0, wxALL, WXC_FROM_DIP(5));
     
     m_projectPathCtl = new wxDirPickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a Project Folder"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxDIRP_SMALL|wxDIRP_DEFAULT_STYLE|wxDIRP_DIR_MUST_EXIST);
     
     flexGridSizer592->Add(m_projectPathCtl, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     
-    m_staticText6251 = new wxStaticText(this, wxID_ANY, _("Location"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
-    m_staticText6251->Hide();
+    m_projectFileCtlLabel = new wxStaticText(this, wxID_ANY, _("Project File"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
     
-    flexGridSizer592->Add(m_staticText6251, 0, wxALL, WXC_FROM_DIP(5));
+    flexGridSizer592->Add(m_projectFileCtlLabel, 0, wxALL, WXC_FROM_DIP(5));
     
     m_projectFileCtl = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a file"), wxT("*"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL|wxFLP_FILE_MUST_EXIST);
-    m_projectFileCtl->Hide();
     
     flexGridSizer592->Add(m_projectFileCtl, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     

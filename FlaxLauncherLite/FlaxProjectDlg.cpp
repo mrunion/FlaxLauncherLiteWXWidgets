@@ -37,7 +37,11 @@ wxString FlaxProjectDlg::GetEngineName() {
 bool FlaxProjectDlg::TransferDataFromWindow() {
     m_engineNameData = m_engineChoiceCtl->GetStringSelection();
     m_projectNameData = m_projectName->GetValue();
-    m_projectPathData = m_projectPathCtl->GetTextCtrlValue();
+    if (m_projectPathCtl->IsShown()) {
+        m_projectPathData = m_projectPathCtl->GetTextCtrlValue();
+    } else {
+        m_projectPathData = m_projectFileCtl->GetTextCtrlValue();
+    }
     
     return true;
 }

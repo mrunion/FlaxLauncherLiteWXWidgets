@@ -31,6 +31,17 @@ void MainFrame::SetupConfig() {
     
     // Read the projects that are stored
     m_appConfig->SetPath("/projects");
+    validItem = m_appConfig->GetFirstGroup(str, dummy);
+    while (validItem) {
+        // Each group is a project, and there are fields underneath we need
+        FlaxProjectDefinition pd = {
+            str,
+            m_appConfig->Read(str+"/path", "<Unknown>"),
+            m_appConfig->Read(str+"/engine", "<Unknown>")
+        };
+        
+        validItem = m_appConfig->GetNextGroup(str, dummy);
+    }
     
     // Set the path back to the root
     m_appConfig->SetPath("/");
@@ -76,8 +87,10 @@ void MainFrame::OnAddProjectLeftUp(wxMouseEvent& event) {
     FlaxProjectDlg dialog(this);
     
     // Since we are adding a project, hide the path chooser and show the file chooser
-    dialog.GetProjectFileCtl()->Hide();
-    dialog.GetProjectPathCtl()->Show(true);
+    dialog.GetProjectFileCtlLabel()->Show(true);
+    dialog.GetProjectFileCtl()->Show(true);
+    dialog.GetProjectPathCtlLabel()->Hide();
+    dialog.GetProjectPathCtl()->Hide();
     
     // Add the list of engines to the engine choices
     dialog.GetEngineChoiceCtl()->Clear();
@@ -94,7 +107,9 @@ void MainFrame::OnCreateProjectLeftUp(wxMouseEvent& event) {
     FlaxProjectDlg dialog(this);
     
     // Since we are creating a project, hide the file chooser and show the path chooser
+    dialog.GetProjectFileCtlLabel()->Hide();
     dialog.GetProjectFileCtl()->Hide();
+    dialog.GetProjectPathCtlLabel()->Show(true);
     dialog.GetProjectPathCtl()->Show(true);
     
     if (dialog.ShowModal() == wxID_OK) {
