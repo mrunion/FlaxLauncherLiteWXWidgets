@@ -5,10 +5,13 @@
 #include <wx/msgdlg.h>
 #include <wx/config.h>
 #include <wx/confbase.h>
+#include <wx/listctrl.h>
 
 MainFrame::MainFrame(wxWindow* parent)
     : MainFrameBaseClass(parent) {
     SetupConfig();
+    SetupImageLists();
+    FillProjectListCtl();
 }
 
 MainFrame::~MainFrame() {
@@ -34,12 +37,12 @@ void MainFrame::SetupConfig() {
     validItem = m_appConfig->GetFirstGroup(str, dummy);
     while (validItem) {
         // Each group is a project, and there are fields underneath we need
-        FlaxProjectDefinition pd = {
+        FlaxProjectDefinition item = {
             str,
             m_appConfig->Read(str+"/path", "<Unknown>"),
             m_appConfig->Read(str+"/engine", "<Unknown>")
         };
-        
+        m_projectList.push_back(item);
         validItem = m_appConfig->GetNextGroup(str, dummy);
     }
     
@@ -138,4 +141,28 @@ void MainFrame::WriteProjectConfig(wxString projectName, wxString projectPath, w
     m_appConfig->Write("engine", pd.engineName);
     m_appConfig->Flush();
     m_appConfig->SetPath("/");
+}
+
+void MainFrame::SetupImageLists() {
+    m_projectImageList = new wxImageList(32, 32);
+    
+    wxBitmap bitmap(wxT("images/fll.png"), wxBITMAP_TYPE_PNG);
+    m_projectImageList->Add(bitmap);
+}
+
+void MainFrame::FillProjectListCtl() {
+    m_projectsListCtl->ClearAll();
+    m_projectsListCtl->SetImageList(m_projectImageList, wxIMAGE_LIST_NORMAL);
+    
+    int counter = 0;
+    for (FlaxProjectDefinition pd : m_projectList) {
+        wxListItem li = *new wxListItem();
+        li.SetId(counter++);
+        li.SetText(pd.projectName);
+        li.SetImage(0);
+        
+        m_projectsListCtl->InsertItem(li);
+    }
+    
+    //GetSizer()->Layout();
 }
