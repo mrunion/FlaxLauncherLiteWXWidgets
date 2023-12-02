@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resource xmlns="http://www.wxwidgets.org/wxxrc">
   <!-- Handler Generation is ON -->
+  <object class="wxBitmap" name="logo_128x128">images/logo_128x128.png</object>
+  <object class="wxBitmap" name="logo_16x16">images/logo_16x16.png</object>
+  <object class="wxBitmap" name="logo_256x256">images/logo_256x256.png</object>
+  <object class="wxBitmap" name="logo_32x32">images/logo_32x32.png</object>
   <object class="wxBitmap" name="logo_64x64">images/logo_64x64.png</object>
 </resource>
