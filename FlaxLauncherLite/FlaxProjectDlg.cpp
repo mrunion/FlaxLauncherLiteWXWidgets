@@ -4,7 +4,6 @@
 
 FlaxProjectDlg::FlaxProjectDlg(wxWindow* parent)
     : FlaxProjectDlgBaseClass(parent) {
-    SetValidators();
 }
 
 FlaxProjectDlg::~FlaxProjectDlg() {
@@ -27,8 +26,19 @@ wxString FlaxProjectDlg::GetProjectPath() {
     return m_projectPathData;
 }
 
-void FlaxProjectDlg::SetValidators() {
-    // Set up the validators for this dialog
-    m_projectName->SetValidator(wxGenericValidator(& m_projectNameData));
+void FlaxProjectDlg::SetEngineName(wxString engineName) {
+    m_engineNameData = engineName;
+}
+
+wxString FlaxProjectDlg::GetEngineName() {
+    return m_engineNameData;
+}
+
+bool FlaxProjectDlg::TransferDataFromWindow() {
+    m_engineNameData = m_engineChoiceCtl->GetStringSelection();
+    m_projectNameData = m_projectName->GetValue();
+    m_projectPathData = m_projectPathCtl->GetTextCtrlValue();
+    
+    return true;
 }
 

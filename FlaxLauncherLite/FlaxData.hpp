@@ -5,7 +5,7 @@ struct FlaxEngineDefinition {
     wxString enginePath;
 };
 
-struct FlacProjectDefinition {
+struct FlaxProjectDefinition {
     wxString projectName;
     wxString projectPath;
     wxString engineName;

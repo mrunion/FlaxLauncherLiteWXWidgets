@@ -68,24 +68,59 @@ void MainFrame::OnAddEngineLeftUp(wxMouseEvent& event) {
     FlaxEngineDlg dialog(this);
     
     if (dialog.ShowModal() == wxID_OK) {
-        // Add Engine
-        FlaxEngineDefinition ed = { dialog.GetEngineName(), dialog.GetEnginePath() };
-        m_engineList.push_back(ed);
-        
-        m_appConfig->SetPath("/engines");
-        m_appConfig->Write(ed.engineName, ed.enginePath);
-        m_appConfig->Flush();
-        m_appConfig->SetPath("/");
+        WriteEngineConfig(dialog.GetEngineName(), dialog.GetEnginePath());
     }
 }
 
 void MainFrame::OnAddProjectLeftUp(wxMouseEvent& event) {
+    FlaxProjectDlg dialog(this);
+    
+    // Since we are adding a project, hide the path chooser and show the file chooser
+    dialog.GetProjectFileCtl()->Hide();
+    dialog.GetProjectPathCtl()->Show(true);
+    
+    // Add the list of engines to the engine choices
+    dialog.GetEngineChoiceCtl()->Clear();
+    for (FlaxEngineDefinition ed : m_engineList) {
+        dialog.GetEngineChoiceCtl()->Append(ed.engineName);
+    }
+    
+    if (dialog.ShowModal() == wxID_OK) {
+        WriteProjectConfig(dialog.GetProjectName(), dialog.GetProjectPath(), dialog.GetEngineName());
+    }
 }
 
 void MainFrame::OnCreateProjectLeftUp(wxMouseEvent& event) {
     FlaxProjectDlg dialog(this);
     
+    // Since we are creating a project, hide the file chooser and show the path chooser
+    dialog.GetProjectFileCtl()->Hide();
+    dialog.GetProjectPathCtl()->Show(true);
+    
     if (dialog.ShowModal() == wxID_OK) {
         wxMessageBox(dialog.GetProjectName(), "MR_DEBUG");
     }
+}
+
+void MainFrame::WriteEngineConfig(wxString engineName, wxString enginePath) {
+    // Add Engine
+    FlaxEngineDefinition ed = { engineName, enginePath };
+    m_engineList.push_back(ed);
+    
+    m_appConfig->SetPath("/engines");
+    m_appConfig->Write(ed.engineName, ed.enginePath);
+    m_appConfig->Flush();
+    m_appConfig->SetPath("/");
+}
+
+void MainFrame::WriteProjectConfig(wxString projectName, wxString projectPath, wxString engineName) {
+    // Add Project
+    FlaxProjectDefinition pd = { projectName, projectPath, engineName };
+    m_projectList.push_back(pd);
+    
+    m_appConfig->SetPath("/projects/" + pd.projectName);
+    m_appConfig->Write("path", pd.projectPath);
+    m_appConfig->Write("engine", pd.engineName);
+    m_appConfig->Flush();
+    m_appConfig->SetPath("/");
 }

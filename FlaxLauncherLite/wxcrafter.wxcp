@@ -1,7 +1,7 @@
 {
 	"metadata":	{
 		"m_generatedFilesDir":	".",
-		"m_objCounter":	84,
+		"m_objCounter":	86,
 		"m_includeFiles":	[],
 		"m_bitmapFunction":	"wxC9ED9InitBitmapResources",
 		"m_bitmapsFile":	"wxcrafter_bitmaps.cpp",
@@ -535,12 +535,12 @@
 											"m_children":	[]
 										}, {
 											"m_type":	4454,
-											"proportion":	1,
+											"proportion":	0,
 											"border":	5,
 											"gbSpan":	"1,1",
 											"gbPosition":	"0,0",
 											"m_styles":	[],
-											"m_sizerFlags":	["wxALL", "wxLEFT", "wxRIGHT", "wxTOP", "wxBOTTOM"],
+											"m_sizerFlags":	[],
 											"m_properties":	[{
 													"type":	"string",
 													"m_label":	"Name:",
@@ -1038,6 +1038,73 @@
 																}],
 															"m_children":	[]
 														}]
+												}, {
+													"m_type":	4413,
+													"proportion":	0,
+													"border":	5,
+													"gbSpan":	"1,1",
+													"gbPosition":	"0,0",
+													"m_styles":	["wxLC_SINGLE_SEL", "wxLC_ICON"],
+													"m_sizerFlags":	["wxEXPAND"],
+													"m_properties":	[{
+															"type":	"winid",
+															"m_label":	"ID:",
+															"m_winid":	"wxID_ANY"
+														}, {
+															"type":	"string",
+															"m_label":	"Size:",
+															"m_value":	"-1,-1"
+														}, {
+															"type":	"string",
+															"m_label":	"Minimum Size:",
+															"m_value":	"-1,-1"
+														}, {
+															"type":	"string",
+															"m_label":	"Name:",
+															"m_value":	"m_listCtrl85"
+														}, {
+															"type":	"multi-string",
+															"m_label":	"Tooltip:",
+															"m_value":	""
+														}, {
+															"type":	"colour",
+															"m_label":	"Bg Colour:",
+															"colour":	"<Default>"
+														}, {
+															"type":	"colour",
+															"m_label":	"Fg Colour:",
+															"colour":	"<Default>"
+														}, {
+															"type":	"font",
+															"m_label":	"Font:",
+															"m_value":	""
+														}, {
+															"type":	"bool",
+															"m_label":	"Hidden",
+															"m_value":	false
+														}, {
+															"type":	"bool",
+															"m_label":	"Disabled",
+															"m_value":	false
+														}, {
+															"type":	"bool",
+															"m_label":	"Focused",
+															"m_value":	false
+														}, {
+															"type":	"string",
+															"m_label":	"Class Name:",
+															"m_value":	""
+														}, {
+															"type":	"string",
+															"m_label":	"Include File:",
+															"m_value":	""
+														}, {
+															"type":	"string",
+															"m_label":	"Style:",
+															"m_value":	""
+														}],
+													"m_events":	[],
+													"m_children":	[]
 												}]
 										}]
 								}, {
@@ -2254,7 +2321,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Name:",
-											"m_value":	"m_engineChoice"
+											"m_value":	"m_engineChoiceCtl"
 										}, {
 											"type":	"multi-string",
 											"m_label":	"Tooltip:",
@@ -2570,7 +2637,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Name:",
-											"m_value":	"m_projectPath"
+											"m_value":	"m_projectPathCtl"
 										}, {
 											"type":	"multi-string",
 											"m_label":	"Tooltip:",
@@ -2720,7 +2787,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Name:",
-											"m_value":	"m_projectFile"
+											"m_value":	"m_projectFileCtl"
 										}, {
 											"type":	"multi-string",
 											"m_label":	"Tooltip:",

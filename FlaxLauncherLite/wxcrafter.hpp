@@ -19,6 +19,7 @@
 #include <wx/panel.h>
 #include <wx/statbmp.h>
 #include <wx/stattext.h>
+#include <wx/listctrl.h>
 #include <wx/statusbr.h>
 #include <wx/dialog.h>
 #include <wx/textctrl.h>
@@ -58,6 +59,7 @@ protected:
     wxPanel* m_projectPanel;
     wxStaticText* m_newProject;
     wxStaticText* m_addProject;
+    wxListCtrl* m_listCtrl85;
     wxPanel* m_enginePanel;
     wxStaticText* m_addEngine;
     wxStatusBar* m_statusBar32;
@@ -79,6 +81,7 @@ public:
     wxPanel* GetMainPanel() { return m_mainPanel; }
     wxStaticText* GetNewProject() { return m_newProject; }
     wxStaticText* GetAddProject() { return m_addProject; }
+    wxListCtrl* GetListCtrl85() { return m_listCtrl85; }
     wxPanel* GetProjectPanel() { return m_projectPanel; }
     wxStaticText* GetAddEngine() { return m_addEngine; }
     wxPanel* GetEnginePanel() { return m_enginePanel; }
@@ -115,13 +118,13 @@ class FlaxProjectDlgBaseClass : public wxDialog
 {
 protected:
     wxStaticText* m_staticText81;
-    wxChoice* m_engineChoice;
+    wxChoice* m_engineChoiceCtl;
     wxStaticText* m_staticText603;
     wxTextCtrl* m_projectName;
     wxStaticText* m_staticText625;
-    wxDirPickerCtrl* m_projectPath;
+    wxDirPickerCtrl* m_projectPathCtl;
     wxStaticText* m_staticText6251;
-    wxFilePickerCtrl* m_projectFile;
+    wxFilePickerCtrl* m_projectFileCtl;
     wxStdDialogButtonSizer* m_stdBtnSizer647;
     wxButton* m_OKBtn;
     wxButton* m_CancelBtn;
@@ -130,13 +133,13 @@ protected:
 
 public:
     wxStaticText* GetStaticText81() { return m_staticText81; }
-    wxChoice* GetEngineChoice() { return m_engineChoice; }
+    wxChoice* GetEngineChoiceCtl() { return m_engineChoiceCtl; }
     wxStaticText* GetStaticText603() { return m_staticText603; }
     wxTextCtrl* GetProjectName() { return m_projectName; }
     wxStaticText* GetStaticText625() { return m_staticText625; }
-    wxDirPickerCtrl* GetProjectPath() { return m_projectPath; }
+    wxDirPickerCtrl* GetProjectPathCtl() { return m_projectPathCtl; }
     wxStaticText* GetStaticText6251() { return m_staticText6251; }
-    wxFilePickerCtrl* GetProjectFile() { return m_projectFile; }
+    wxFilePickerCtrl* GetProjectFileCtl() { return m_projectFileCtl; }
     FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Flax Project"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(450,250), long style = wxDEFAULT_DIALOG_STYLE);
     virtual ~FlaxProjectDlgBaseClass();
 };

@@ -18,11 +18,12 @@ protected:
     virtual void OnExit(wxCommandEvent& event);
     
     virtual void SetupConfig();
-    //virtual void WriteEngineConfig(wxString engineName, wxString enginePath);
-    //virtual void WriteProjectConfig(wxString projectName, wxString projectPath, wxString engineName);
+    virtual void WriteEngineConfig(wxString engineName, wxString enginePath);
+    virtual void WriteProjectConfig(wxString projectName, wxString projectPath, wxString engineName);
 
 private:
     wxConfigBase *m_appConfig;
     std::vector<FlaxEngineDefinition> m_engineList;
+    std::vector<FlaxProjectDefinition> m_projectList;
 };
 #endif // MAINFRAME_HPP
