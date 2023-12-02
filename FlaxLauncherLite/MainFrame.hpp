@@ -20,6 +20,7 @@ protected:
     virtual void SetupConfig();
     virtual void SetupImageLists();
     virtual void FillProjectListCtl();
+    virtual void FillEngineListCtl();
     virtual void WriteEngineConfig(wxString engineName, wxString enginePath);
     virtual void WriteProjectConfig(wxString projectName, wxString projectPath, wxString engineName);
 
@@ -28,5 +29,6 @@ private:
     std::vector<FlaxEngineDefinition> m_engineList;
     std::vector<FlaxProjectDefinition> m_projectList;
     wxImageList *m_projectImageList;
+    wxImageList *m_engineImageList;
 };
 #endif // MAINFRAME_HPP

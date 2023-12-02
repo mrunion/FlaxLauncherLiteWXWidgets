@@ -13,6 +13,7 @@ MainFrame::MainFrame(wxWindow* parent)
     SetupConfig();
     SetupImageLists();
     FillProjectListCtl();
+    FillEngineListCtl();
 }
 
 MainFrame::~MainFrame() {
@@ -145,10 +146,13 @@ void MainFrame::WriteProjectConfig(wxString projectName, wxString projectPath, w
 }
 
 void MainFrame::SetupImageLists() {
+    m_engineImageList = new wxImageList(32, 32);
     m_projectImageList = new wxImageList(32, 32);
     
     wxBitmap bitmap(wxT("fll"), wxBITMAP_TYPE_PNG_RESOURCE);
+    
     m_projectImageList->Add(bitmap);
+    m_engineImageList->Add(bitmap);
 }
 
 void MainFrame::FillProjectListCtl() {
@@ -163,5 +167,20 @@ void MainFrame::FillProjectListCtl() {
         li.SetImage(0);
         
         m_projectsListCtl->InsertItem(li);
+    }
+}
+
+void MainFrame::FillEngineListCtl() {
+    m_enginesListCtl->ClearAll();
+    m_enginesListCtl->SetImageList(m_engineImageList, wxIMAGE_LIST_NORMAL);
+    
+    int counter = 0;
+    for (FlaxEngineDefinition ed : m_engineList) {
+        wxListItem li = *new wxListItem();
+        li.SetId(counter++);
+        li.SetText(ed.engineName);
+        li.SetImage(0);
+        
+        m_enginesListCtl->InsertItem(li);
     }
 }
