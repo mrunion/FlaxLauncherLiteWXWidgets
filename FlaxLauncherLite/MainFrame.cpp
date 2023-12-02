@@ -184,3 +184,25 @@ void MainFrame::FillEngineListCtl() {
         m_enginesListCtl->InsertItem(li);
     }
 }
+void MainFrame::OnEngineItemRClick(wxListEvent& event) {
+    // Get the item that was clicked
+    wxListItem item = event.GetItem();
+    long id = item.GetId();
+    
+    if (id >= 0) {
+        // Look up the info for the engine
+        FlaxEngineDefinition ed = m_engineList.at(id);
+        wxMessageBox(ed.enginePath, ed.engineName);
+    }
+}
+void MainFrame::OnProjectItemRClick(wxListEvent& event) {
+    // Get the item that was clicked
+    wxListItem item = event.GetItem();
+    long id = item.GetId();
+    
+    if (id >= 0) {
+        // Look up the info for the project
+        FlaxProjectDefinition pd = m_projectList.at(id);
+        wxMessageBox(pd.projectPath, pd.projectName);
+    }
+}

@@ -9,6 +9,8 @@ public:
     MainFrame(wxWindow* parent);
     virtual ~MainFrame();
 protected:
+    virtual void OnProjectItemRClick(wxListEvent& event);
+    virtual void OnEngineItemRClick(wxListEvent& event);
     virtual void OnAddEngineLeftUp(wxMouseEvent& event);
     virtual void OnAddProjectLeftUp(wxMouseEvent& event);
     virtual void OnCreateProjectLeftUp(wxMouseEvent& event);

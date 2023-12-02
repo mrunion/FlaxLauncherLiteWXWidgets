@@ -72,7 +72,9 @@ protected:
     virtual void OnEnginesLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnCreateProjectLeftUp(wxMouseEvent& event) { event.Skip(); }
     virtual void OnAddProjectLeftUp(wxMouseEvent& event) { event.Skip(); }
+    virtual void OnProjectItemRClick(wxListEvent& event) { event.Skip(); }
     virtual void OnAddEngineLeftUp(wxMouseEvent& event) { event.Skip(); }
+    virtual void OnEngineItemRClick(wxListEvent& event) { event.Skip(); }
 
 public:
     wxMenuBar* GetMenuBar31() { return m_menuBar31; }
