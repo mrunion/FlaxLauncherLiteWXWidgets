@@ -329,7 +329,7 @@ FlaxProjectDlgBaseClass::FlaxProjectDlgBaseClass(wxWindow* parent, wxWindowID id
     
     flexGridSizer592->Add(m_projectFileCtlLabel, 0, wxALL, WXC_FROM_DIP(5));
     
-    m_projectFileCtl = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a file"), wxT("*"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL|wxFLP_FILE_MUST_EXIST);
+    m_projectFileCtl = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString, _("Select a file"), wxT("*.flaxproj"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxFLP_DEFAULT_STYLE|wxFLP_SMALL|wxFLP_FILE_MUST_EXIST);
     
     flexGridSizer592->Add(m_projectFileCtl, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
     

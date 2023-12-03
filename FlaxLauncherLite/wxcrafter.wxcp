@@ -2918,7 +2918,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Wildcard:",
-											"m_value":	"*"
+											"m_value":	"*.flaxproj"
 										}],
 									"m_events":	[],
 									"m_children":	[]
