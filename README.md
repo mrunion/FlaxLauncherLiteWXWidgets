@@ -1,7 +1,8 @@
 # FlaxLauncherLite #
 
-## This project is very experimental! No checks to validate the existance of the engines/projects are made.
-Errors should be expected! ##
+## This project is very experimental! No checks to validate the existance of the engines/projects are made. Errors should be expected! ##
+
+## Note: wxWidgets will be needed and that library is not statically linked. ##
 
 Flax Launcher Lite is a Flax Engine launcher for MacOS, Linux and Windows. It is a very first pass and
 has only been compiled and tested under MacOS. This launcher has only the most basic features. It allows:
