@@ -183,9 +183,9 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_engines->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);
     m_addProject->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddProjectLeftUp, this);
-    m_projectsListCtl->Bind(wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, &MainFrameBaseClass::OnProjectItemRClick, this);
+    m_projectsListCtl->Bind(wxEVT_CONTEXT_MENU, &MainFrameBaseClass::OnProjectListCtrlContextMenuShow, this);
     m_addEngine->Bind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddEngineLeftUp, this);
-    m_enginesListCtl->Bind(wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, &MainFrameBaseClass::OnEngineItemRClick, this);
+    m_enginesListCtl->Bind(wxEVT_CONTEXT_MENU, &MainFrameBaseClass::OnEngineListCtrlContextMenuShow, this);
     
 }
 
@@ -197,9 +197,9 @@ MainFrameBaseClass::~MainFrameBaseClass()
     m_engines->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnEnginesLeftUp, this);
     m_newProject->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnCreateProjectLeftUp, this);
     m_addProject->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddProjectLeftUp, this);
-    m_projectsListCtl->Unbind(wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, &MainFrameBaseClass::OnProjectItemRClick, this);
+    m_projectsListCtl->Unbind(wxEVT_CONTEXT_MENU, &MainFrameBaseClass::OnProjectListCtrlContextMenuShow, this);
     m_addEngine->Unbind(wxEVT_LEFT_UP, &MainFrameBaseClass::OnAddEngineLeftUp, this);
-    m_enginesListCtl->Unbind(wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, &MainFrameBaseClass::OnEngineItemRClick, this);
+    m_enginesListCtl->Unbind(wxEVT_CONTEXT_MENU, &MainFrameBaseClass::OnEngineListCtrlContextMenuShow, this);
     
 }
 

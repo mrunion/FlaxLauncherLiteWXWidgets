@@ -1104,10 +1104,10 @@
 															"m_value":	""
 														}],
 													"m_events":	[{
-															"m_eventName":	"wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK",
-															"m_eventClass":	"wxListEvent",
-															"m_functionNameAndSignature":	"OnProjectItemRClick(wxListEvent& event)",
-															"m_description":	"The right mouse button has been clicked on an item",
+															"m_eventName":	"wxEVT_CONTEXT_MENU",
+															"m_eventClass":	"wxContextMenuEvent",
+															"m_functionNameAndSignature":	"OnProjectListCtrlContextMenuShow(wxContextMenuEvent& event)",
+															"m_description":	"A right click (or other context menu command depending on platform) has been detected",
 															"m_noBody":	false
 														}],
 													"m_children":	[]
@@ -1389,10 +1389,10 @@
 															"m_value":	""
 														}],
 													"m_events":	[{
-															"m_eventName":	"wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK",
-															"m_eventClass":	"wxListEvent",
-															"m_functionNameAndSignature":	"OnEngineItemRClick(wxListEvent& event)",
-															"m_description":	"The right mouse button has been clicked on an item",
+															"m_eventName":	"wxEVT_CONTEXT_MENU",
+															"m_eventClass":	"wxContextMenuEvent",
+															"m_functionNameAndSignature":	"OnEngineListCtrlContextMenuShow(wxContextMenuEvent& event)",
+															"m_description":	"A right click (or other context menu command depending on platform) has been detected",
 															"m_noBody":	false
 														}],
 													"m_children":	[]

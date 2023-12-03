@@ -8,9 +8,11 @@ class MainFrame : public MainFrameBaseClass {
 public:
     MainFrame(wxWindow* parent);
     virtual ~MainFrame();
+    
 protected:
-    virtual void OnProjectItemRClick(wxListEvent& event);
-    virtual void OnEngineItemRClick(wxListEvent& event);
+    virtual void OnProjectListCtrlContextMenuShow(wxContextMenuEvent& event);
+    virtual void OnEngineListCtrlContextMenuShow(wxContextMenuEvent& event);
+    virtual void OnContextMenuSelected(wxCommandEvent& event);
     virtual void OnAddEngineLeftUp(wxMouseEvent& event);
     virtual void OnAddProjectLeftUp(wxMouseEvent& event);
     virtual void OnCreateProjectLeftUp(wxMouseEvent& event);
@@ -32,5 +34,12 @@ private:
     std::vector<FlaxProjectDefinition> m_projectList;
     wxImageList *m_projectImageList;
     wxImageList *m_engineImageList;
+    
+    enum m_popupMenuIDs { MENU_ID_LAUNCH = wxID_HIGHEST + 1, MENU_ID_PROJECT_DELETE, MENU_ID_ENGINE_DELETE };
+    
+    FlaxEngineDefinition FindEngineDefinition(wxString engineName);
+    FlaxProjectDefinition FindProjectDefinition(wxString projectName);
+    bool DeleteEngine(wxString engineName);
+    bool DeleteProject(wxString projectName);
 };
 #endif // MAINFRAME_HPP

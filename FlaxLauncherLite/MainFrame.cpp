@@ -7,9 +7,13 @@
 #include <wx/confbase.h>
 #include <wx/listctrl.h>
 #include <wx/gdicmn.h>
+#include <wx/menu.h>
 
 MainFrame::MainFrame(wxWindow* parent)
     : MainFrameBaseClass(parent) {
+    // Bind the context menu handler here
+    Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnContextMenuSelected, this, MENU_ID_LAUNCH, MENU_ID_ENGINE_DELETE);
+    
     SetupConfig();
     SetupImageLists();
     FillProjectListCtl();
@@ -85,6 +89,7 @@ void MainFrame::OnAddEngineLeftUp(wxMouseEvent& event) {
     
     if (dialog.ShowModal() == wxID_OK) {
         WriteEngineConfig(dialog.GetEngineName(), dialog.GetEnginePath());
+        FillEngineListCtl();
     }
 }
 
@@ -105,6 +110,7 @@ void MainFrame::OnAddProjectLeftUp(wxMouseEvent& event) {
     
     if (dialog.ShowModal() == wxID_OK) {
         WriteProjectConfig(dialog.GetProjectName(), dialog.GetProjectPath(), dialog.GetEngineName());
+        FillProjectListCtl();
     }
 }
 
@@ -185,25 +191,112 @@ void MainFrame::FillEngineListCtl() {
         m_enginesListCtl->InsertItem(li);
     }
 }
-void MainFrame::OnEngineItemRClick(wxListEvent& event) {
-    // Get the item that was clicked
-    wxListItem item = event.GetItem();
-    long id = item.GetId();
+
+FlaxEngineDefinition MainFrame::FindEngineDefinition(wxString engineName) {
+    // Look up the info for the engine given the name
+    for (FlaxEngineDefinition ed : m_engineList) {
+        if (ed.engineName.IsSameAs(engineName)) {
+            return ed;
+        }
+    }
     
-    if (id >= 0) {
-        // Look up the info for the engine
-        FlaxEngineDefinition ed = m_engineList.at(id);
-        wxMessageBox(ed.enginePath, ed.engineName);
+    // No engine with that name found
+    return { wxT("<UNKNOWN>"), wxT("") };
+}
+
+FlaxProjectDefinition MainFrame::FindProjectDefinition(wxString projectName) {
+    // Look up the info for the project given the name
+    for (FlaxProjectDefinition pd : m_projectList) {
+        if (pd.projectName.IsSameAs(projectName)) {
+            return pd;
+        }
+    }
+    
+    // No engine with that name found
+    return { wxT("<UNKNOWN>"), wxT(""), wxT("<UNKNNOWN>") };
+}
+
+bool MainFrame::DeleteEngine(wxString engineName) {
+    // Delete the given engine
+    m_appConfig->SetPath("/engines");
+    auto result = m_appConfig->DeleteEntry(engineName);
+    m_appConfig->SetPath("/");
+    m_appConfig->Flush();
+    
+    return result;
+}
+
+bool MainFrame::DeleteProject(wxString projectName) {
+    // Delete the given project
+    m_appConfig->SetPath("/projects");
+    auto result = m_appConfig->DeleteGroup(projectName);
+    m_appConfig->SetPath("/");
+    m_appConfig->Flush();
+    
+    return result;
+}
+
+void MainFrame::OnContextMenuSelected(wxCommandEvent& event) {
+    // See whitch menu item was clicked
+    switch(event.GetId()) {
+        case MENU_ID_LAUNCH: {
+            wxMessageBox(wxT("Launch"), wxT("MR_DEBUG"));
+            break;
+        }
+        
+        case MENU_ID_PROJECT_DELETE: {
+            long projectPos = m_projectsListCtl->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+            FlaxProjectDefinition pd = m_projectList.at(projectPos);
+            
+            if (DeleteProject(pd.projectName)) {
+                // We successfully deleted the project from disk, so remove it from the list
+                m_projectList.erase(m_projectList.begin() + projectPos);
+                FillProjectListCtl();
+            } else {
+                wxMessageBox(wxT("Could not delete Project"), wxT("Delete Project"));
+            }
+            
+            break;
+        }
+        
+        case MENU_ID_ENGINE_DELETE: {
+            long enginePos = m_enginesListCtl->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+            FlaxEngineDefinition ed = m_engineList.at(enginePos);
+            
+            if (DeleteEngine(ed.engineName)) {
+                // We successfully deleted the engine from disk, so remove it from the list
+                m_engineList.erase(m_engineList.begin() + enginePos);
+                FillEngineListCtl();
+            } else {
+                wxMessageBox(wxT("Could not delete Engine"), wxT("Delete Engine"));
+            }
+            
+            break;
+        }
     }
 }
-void MainFrame::OnProjectItemRClick(wxListEvent& event) {
-    // Get the item that was clicked
-    wxListItem item = event.GetItem();
-    long id = item.GetId();
+
+void MainFrame::OnEngineListCtrlContextMenuShow(wxContextMenuEvent& event) {
+    // See if anything is selected, and if so we show a menu
+    long selectedItem = m_enginesListCtl->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
     
-    if (id >= 0) {
-        // Look up the info for the project
-        FlaxProjectDefinition pd = m_projectList.at(id);
-        wxMessageBox(pd.projectPath, pd.projectName);
+    if (selectedItem >= 0) {
+        // Show a popup menu with the appropriate options
+        wxMenu popupMenu;
+        popupMenu.Append(MENU_ID_ENGINE_DELETE, wxT("Delete"));
+        PopupMenu(&popupMenu);
+    }
+}
+
+void MainFrame::OnProjectListCtrlContextMenuShow(wxContextMenuEvent& event) {
+    // See if anything is selected, and if so we show a menu
+    long selectedItem = m_projectsListCtl->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+    
+    if (selectedItem >= 0) {
+        // Show a popup menu with the appropriate options
+        wxMenu popupMenu;
+        popupMenu.Append(MENU_ID_LAUNCH, wxT("Launch"));
+        popupMenu.Append(MENU_ID_PROJECT_DELETE, wxT("Delete"));
+        PopupMenu(&popupMenu);
     }
 }
