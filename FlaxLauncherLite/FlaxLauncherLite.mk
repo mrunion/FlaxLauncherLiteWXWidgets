@@ -52,8 +52,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /Applications/Xcode.app/Contents/Developer/usr/bin/g++
 CC       := /Applications/Xcode.app/Contents/Developer/usr/bin/gcc
-CXXFLAGS := -std=c++20 $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cxxflags) -O0 -gdwarf-2 -std=c++20 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
-CFLAGS   := -std=c++11 $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cflags) -O0 -gdwarf-2 -std=c++11 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
+CXXFLAGS := -std=c++17 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -O0 -gdwarf-2 -std=c++17 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
+CFLAGS   := -std=c++11 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -O0 -gdwarf-2 -std=c++11 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 

@@ -27,7 +27,7 @@
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
-      <Compiler Options="-std=c++20;$(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cxxflags)" C_Options="-std=c++11;$(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cflags)" Assembler="">
+      <Compiler Options="-std=c++17;-I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__" C_Options="-std=c++11;-I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__" Assembler="">
         <IncludePath Value="."/>
       </Compiler>
       <Linker Options="$(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —libs)">
@@ -83,7 +83,7 @@ $(IntermediateDirectory)/$(ProjectName).app/Contents/Resources/FlaxLauncherLite.
       </Completion>
     </Configuration>
     <Configuration Name="Debug MacOS" CompilerType="GCC ( XCode )" DebuggerType="lldb-vscode" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-O0;-gdwarf-2;-std=c++20;-Wall;-I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__" C_Options="-O0;-gdwarf-2;-std=c++11;-Wall;-I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="1">
+      <Compiler Options="-O0;-gdwarf-2;-std=c++17;-Wall;-I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__" C_Options="-O0;-gdwarf-2;-std=c++11;-Wall;-I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="1">
         <IncludePath Value="."/>
       </Compiler>
       <Linker Options="-L/opt/homebrew/lib   -framework IOKit -framework Carbon -framework Cocoa -framework QuartzCore -framework AudioToolbox -framework System -framework OpenGL -lwx_osx_cocoau_xrc-3.2 -lwx_osx_cocoau_html-3.2 -lwx_osx_cocoau_qa-3.2 -lwx_osx_cocoau_core-3.2 -lwx_baseu_xml-3.2 -lwx_baseu_net-3.2 -lwx_baseu-3.2" Required="yes"/>
