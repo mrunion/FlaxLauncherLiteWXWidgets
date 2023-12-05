@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Matt Runion
-Date                   :=03/12/2023
+Date                   :=05/12/2023
 CodeLitePath           :=/Users/mrunion/.codelite
 MakeDirCommand         :=mkdir -p
 LinkerName             :=/Applications/Xcode.app/Contents/Developer/usr/bin/g++
@@ -37,7 +37,7 @@ ArchiveOutputSwitch    :=
 PreprocessOnlySwitch   :=-E
 ObjectsFileList        :=$(IntermediateDirectory)/ObjectsList.txt
 PCHCompileFlags        :=
-LinkOptions            := $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —libs) -L/Users/mrunion/wxWidgets/build-cocoa-debug/lib   -framework IOKit -framework Carbon -framework Cocoa -framework QuartzCore -framework AudioToolbox -framework System -framework OpenGL -lwx_osx_cocoau_xrc-3.3 -lwx_osx_cocoau_html-3.3 -lwx_osx_cocoau_qa-3.3 -lwx_osx_cocoau_core-3.3 -lwx_baseu_xml-3.3 -lwx_baseu_net-3.3 -lwx_baseu-3.3
+LinkOptions            := $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —libs) -L/opt/homebrew/lib   -framework IOKit -framework Carbon -framework Cocoa -framework QuartzCore -framework AudioToolbox -framework System -framework OpenGL -lwx_osx_cocoau_xrc-3.2 -lwx_osx_cocoau_html-3.2 -lwx_osx_cocoau_qa-3.2 -lwx_osx_cocoau_core-3.2 -lwx_baseu_xml-3.2 -lwx_baseu_net-3.2 -lwx_baseu-3.2
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
@@ -52,8 +52,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := /usr/bin/ar rcu
 CXX      := /Applications/Xcode.app/Contents/Developer/usr/bin/g++
 CC       := /Applications/Xcode.app/Contents/Developer/usr/bin/gcc
-CXXFLAGS := -std=c++20 $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cxxflags) -O0 -gdwarf-2 -std=c++20 -Wall -I/Users/mrunion/wxWidgets/build-cocoa-debug/lib/wx/include/osx_cocoa-unicode-3.3 -I/Users/mrunion/wxWidgets/include -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
-CFLAGS   := -std=c++11 $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cflags) -O0 -gdwarf-2 -std=c++11 -Wall -I/Users/mrunion/wxWidgets/build-cocoa-debug/lib/wx/include/osx_cocoa-unicode-3.3 -I/Users/mrunion/wxWidgets/include -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
+CXXFLAGS := -std=c++20 $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cxxflags) -O0 -gdwarf-2 -std=c++20 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
+CFLAGS   := -std=c++11 $(shell /Users/mrunion/wxWidgets/build-cocoa-debug/wx-config —cflags) -O0 -gdwarf-2 -std=c++11 -Wall -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.2 -I/opt/homebrew/include/wx-3.2 -D_FILE_OFFSET_BITS=64 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ $(Preprocessors)
 ASFLAGS  := 
 AS       := /usr/bin/as
 
