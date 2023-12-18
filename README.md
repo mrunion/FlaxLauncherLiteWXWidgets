@@ -1,4 +1,6 @@
-# FlaxLauncherLite #
+# FlaxLauncherLiteWXWidgets #
+
+* NOTE: This is no longer developed! Please see [Flax Launcher Lite](https://github.com/mrunion/flaxlauncherlite)! *
 
 ## This project is very experimental! No checks to validate the existance of the engines/projects are made. Errors should be expected! ##
 
